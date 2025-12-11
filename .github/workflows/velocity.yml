@@ -31,18 +31,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Clone repositories for local analysis
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-        run: |
-          # Clone repos into .repos/{owner}/{name} structure expected by git-velocity
-          gh repo clone traefik/traefik --depth=1000
-          gh repo clone cert-manager/cert-manager --depth=1000
-          gh repo clone longhorn/longhorn --depth=1000
-          gh repo clone cloudnative-pg/cloudnative-pg --depth=1000
-          gh repo clone k3s-io/k3s --depth=1000
-          gh repo clone jetstack/version-checker --depth=1000
-
       - name: Generate Dashboard
         uses: lukaszraczylo/git-velocity@v1
         env:

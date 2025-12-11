@@ -1,0 +1,34 @@
+# Git Velocity Configuration
+# Documentation: https://github.com/lukaszraczylo/git-velocity
+
+# Authentication
+auth:
+  github_token: ${GH_PAT}
+
+# Repositories to analyze
+repositories:
+  - owner: traefik
+    name: traefik
+  - owner: cert-manager
+    name: cert-manager
+  - owner: longhorn
+    name: longhorn
+  - owner: cloudnative-pg
+    name: cloudnative-pg
+  - owner: k3s-io
+    name: k3s
+# Date range for analysis
+# Supports relative dates: -Nd (days), -Nw (weeks), -Nm (months), -Ny (years)
+# Or absolute dates: YYYY-MM-DD
+date_range:
+  start: "-30d" # Last 30 days
+  # end: ""        # Empty = now (default)
+
+# Analysis options
+options:
+  # Use local git clones (faster, avoids API rate limits)
+  use_local_git: true
+  # Directory where repos are cloned
+  clone_directory: .repos
+  # Include bot accounts in analysis
+  include_bots: false

@@ -36,14 +36,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           # Clone repos into .repos/{owner}/{name} structure expected by git-velocity
-          mkdir -p .repos/lukaszraczylo
-          cd .repos/lukaszraczylo
-          # Full clone (no depth limit) for complete history analysis
-          gh repo clone traefik/traefik
-          gh repo clone cert-manager/cert-manager
-          gh repo clone longhorn/longhorn
-          gh repo clone cloudnative-pg/cloudnative-pg
-          gh repo clone k3s-io/k3s
+          gh repo clone traefik/traefik --depth=1000
+          gh repo clone cert-manager/cert-manager --depth=1000
+          gh repo clone longhorn/longhorn --depth=1000
+          gh repo clone cloudnative-pg/cloudnative-pg --depth=1000
+          gh repo clone k3s-io/k3s --depth=1000
+          gh repo clone jetstack/version-checker --depth=1000
 
       - name: Generate Dashboard
         uses: lukaszraczylo/git-velocity@v1

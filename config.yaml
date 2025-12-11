@@ -17,6 +17,8 @@ repositories:
     name: cloudnative-pg
   - owner: k3s-io
     name: k3s
+  - owner: jetstack
+    name: version-checker
 # Date range for analysis
 # Supports relative dates: -Nd (days), -Nw (weeks), -Nm (months), -Ny (years)
 # Or absolute dates: YYYY-MM-DD
